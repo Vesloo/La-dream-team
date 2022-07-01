@@ -37,7 +37,7 @@ class ProductModel
     {
         $connexion = $this->db->connexion();
         $result = $connexion->query("SELECT * FROM products WHERE name LIKE '%$id%'");
-        $products = $result->fetch(PDO::FETCH_ASSOC);
+        $products = $result->fetchAll(PDO::FETCH_ASSOC);
         return $products;
     }
 

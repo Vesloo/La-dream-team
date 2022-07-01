@@ -31,9 +31,9 @@ class ProductController
     public function getProductsBySearch($search)
     {
         $this->product = new ProductModel();
-        $product = $this->product->getProductBySearch($search);
+        $products = $this->product->getProductBySearch($search);
 
-        return $product;
+        return $products;
     }
 
     public function addProduct()
