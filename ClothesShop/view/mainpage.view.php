@@ -5,19 +5,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style/style.css">
+    <link rel="stylesheet" href="./assets/styles/header.css">
     <title>products</title>
 </head>
 
 <body>
-    <header>
-        <nav>
-            <ul class="navbar">
-                <li><a href="?view=products">Home</a></li>
-                <li><a href="?view=connexion">Connexion</a></li>
-            </ul>
-        </nav>
-    </header>
+    <?php include_once('header.view.php'); ?>
     <main>
         <div class='products'>
             <?php

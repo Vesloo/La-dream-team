@@ -12,9 +12,9 @@ class DB
         // $dbName = "clothesshop";
 
         // For mac :
-        $hostBdd = "localhost:8889"; // Mac: 8889, Win: 3306
+        $hostBdd = "localhost:3306"; // Mac: 8889, Win: 3306
         $userBdd = "root";
-        $passwordUserBdd = "root"; // Mac: "root", Win: ""
+        $passwordUserBdd = ""; // Mac: "root", Win: ""
         $dbName = "clothesshop";
 
         try {
