@@ -27,7 +27,6 @@ if (isset($product)) {
         echo "<div class='post'>";
         echo "<div class='line'></div>";
         echo "<h1>" . $product['title'] . "</h1>";
-        echo "<p>" . $product['content'] . "</p>";
         echo "<a href='?id=" . $product['id'] . "'>Go post</a>";
         echo "</div>";
     }

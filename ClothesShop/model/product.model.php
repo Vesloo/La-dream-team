@@ -3,7 +3,6 @@ include_once 'db.php';
 
 class ProductModel
 {
-    private $__db;
 
     public function __construct()
     {

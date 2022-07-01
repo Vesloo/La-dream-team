@@ -23,16 +23,20 @@ class PostController
 
     public function addProduct()
     {
-        $title = $_POST['title'];
-        $content = $_POST['content'];
+        $name = $_POST['name'];
+        $description = $_POST['description'];
+        $price = $_POST['price'];
+        $size = $_POST['size'];
+        $category = $_POST['category'];
+        $color = $_POST['color'];
 
         $this->post = new ProductModel();
-        $this->post->addProduct($title, $content);
+        $this->post->addProduct($name, $description, $price, $size, $category, $color);
     }
 
-    public function deletePost($id)
+    public function deleteProduct($id)
     {
         $this->post = new ProductModel();
-        $this->post->deletePost($id);
+        $this->post->deleteProduct($id);
     }
 }
