@@ -15,7 +15,6 @@
             <ul class="navbar">
                 <li><a href="?view=products">Home</a></li>
                 <li><a href="?view=connexion">Connexion</a></li>
-
             </ul>
         </nav>
     </header>
@@ -33,30 +32,39 @@ if (isset($products)) {
     ?>
 
         </div>
+        <form method="get">
+            <input type="search" name="search">
+            <input type="submit" name="search-submit">
+        </form>
         <form method="GET">
             <ul class="sort">
-
-                <li><select name="color" id="">
+                <li>
+                    <select name="color">
                         <option value="red">rouge</option>
                         <option value="blue">bleu</option>
                         <option value="yellow">jaune</option>
                         <option value="black">noir</option>
                         <option value="green">vert</option>
                         <option value="white">blanc</option>
-                    </select></li>
-                <li><select name="size" id="">
+                    </select>
+                </li>
+                <li>
+                    <select name="size">
                         <option value="S">S</option>
                         <option value="M">M</option>
                         <option value="L">L</option>
                         <option value="XL">XL</option>
-                    </select></li>
-                <li><select name="category" id="">
+                    </select>
+                </li>
+                <li>
+                    <select name="category">
                         <option value="t-shirt">t-shirt</option>
                         <option value="pants">pantalon</option>
                         <option value="jacket">manteau</option>
                         <option value="pull">pull</option>
-                    </select></li>
-
+                    </select>
+                </li>
+                <li><input type="submit" name="filter-submit" value="filter"></li>
             </ul>
         </form>
         <?php } elseif (isset($product)) {

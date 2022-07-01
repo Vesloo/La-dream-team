@@ -24,28 +24,20 @@ class ProductModel
         return $product;
     }
 
-    public function getProductsBySize($size)
+    public function getProductsByFilter($size, $color, $category)
     {
 
         $connexion = $this->db->connexion();
-        $result = $connexion->query("SELECT * FROM products WHERE size = $size");
+        $result = $connexion->query("SELECT * FROM products WHERE size = $size and color= $color and category= $category");
         $products = $result->fetchAll(PDO::FETCH_ASSOC);
         return $products;
     }
-    public function getProductsByCategory($category)
-    {
 
-        $connexion = $this->db->connexion();
-        $result = $connexion->query("SELECT * FROM products WHERE category = '$category'");
-        $products = $result->fetchAll(PDO::FETCH_ASSOC);
-        return $products;
-    }
-    public function getProductsByColor($color)
+    public function getProductsBySearch($search)
     {
-
         $connexion = $this->db->connexion();
-        $result = $connexion->query("SELECT * FROM products WHERE color = $color");
-        $products = $result->fetchAll(PDO::FETCH_ASSOC);
+        $result = $connexion->query("SELECT * FROM products WHERE name LIKE '%$id%'");
+        $products = $result->fetch(PDO::FETCH_ASSOC);
         return $products;
     }
 
