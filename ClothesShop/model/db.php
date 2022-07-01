@@ -6,6 +6,8 @@ class DB
     {
         // Paramètres de connexion
         // For windows xampp :
+
+
         $hostBdd = "localhost:3306"; // Mac: 8889, Win: 3306
         $userBdd = "root";
         $passwordUserBdd = ""; // Mac: "root", Win: ""
