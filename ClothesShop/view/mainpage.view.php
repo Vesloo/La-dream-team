@@ -6,39 +6,32 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style/style.css">
-    <title>Posts</title>
+    <title>products</title>
 </head>
 
 <body>
     <header>
         <nav>
             <ul class="navbar">
-                <li><a href="?view=posts">Home</a></li>
+                <li><a href="?view=products">Home</a></li>
                 <li><a href="?view=connexion">Connexion</a></li>
 
             </ul>
         </nav>
     </header>
     <main>
-        <div class='posts'>
+        <div class='products'>
             <?php
-if (isset($product)) {
+if (isset($products)) {
     foreach ($products as $product) {
-        echo "<div class='post'>";
+        echo "<div class='product'>";
         echo "<div class='line'></div>";
-        echo "<h1>" . $product['title'] . "</h1>";
+        echo "<h1>" . $product['name'] . "</h1>";
         echo "<a href='?id=" . $product['id'] . "'>Go post</a>";
         echo "</div>";
     }
-} elseif (isset($post)) {
-    echo "<div class='post'>";
-    echo "<div class='line'></div>";
-    echo "<h1>" . $post['title'] . "</h1>";
-    echo "<p>" . $post['content'] . "</p>";
-    echo "</div>";
-}
+    ?>
 
-?>
         </div>
         <form method="GET">
             <ul class="sort">
@@ -66,6 +59,20 @@ if (isset($product)) {
 
             </ul>
         </form>
+        <?php } elseif (isset($product)) {
+
+    echo "<div class='product'>";
+    echo "<div class='line'></div>";
+    echo "<h1>" . $product['name'] . "</h1>";
+    echo "<p>" . $product['description'] . "</p>";
+    echo "</div>";
+
+} ?>
+
+
+
+
+
     </main>
 </body>
 

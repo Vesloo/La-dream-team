@@ -1,7 +1,7 @@
 <?php
 include_once 'model/product.model.php';
 
-class PostController
+class ProductController
 {
     private $__post;
 
@@ -17,6 +17,28 @@ class PostController
     {
         $this->product = new ProductModel();
         $product = $this->product->getSpecificProduct($id);
+
+        return $product;
+    }
+    public function getProductsBySize($id)
+    {
+        $this->product = new ProductModel();
+        $product = $this->product->getProductsBySize($id);
+
+        return $product;
+    }
+
+    public function getProductsByCategory($id)
+    {
+        $this->product = new ProductModel();
+        $product = $this->product->getProductsByCategory($id);
+
+        return $product;
+    }
+    public function getProductsByColor($id)
+    {
+        $this->product = new ProductModel();
+        $product = $this->product->getProductsByColor($id);
 
         return $product;
     }

@@ -16,6 +16,13 @@ class ProductModel
         $products = $result->fetchAll(PDO::FETCH_ASSOC);
         return $products;
     }
+    public function getSpecificProduct($id)
+    {
+        $connexion = $this->db->connexion();
+        $result = $connexion->query("SELECT * FROM products WHERE id = " . $id);
+        $product = $result->fetch(PDO::FETCH_ASSOC);
+        return $product;
+    }
 
     public function getProductsBySize($size)
     {
@@ -46,14 +53,6 @@ class ProductModel
     {
         $connexion = $this->db->connexion();
         $connexion->query("INSERT INTO post (name, description, price, size,category,color) VALUES ('$name', '$description', '$price', '$size','$category','$color')");
-    }
-
-    public function getSpecificProduct($id)
-    {
-        $connexion = $this->db->connexion();
-        $result = $connexion->query("SELECT * FROM products WHERE id = " . $id);
-        $product = $result->fetch(PDO::FETCH_ASSOC);
-        return $product;
     }
 
     public function deleteProduct($id)
