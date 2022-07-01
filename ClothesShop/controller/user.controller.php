@@ -24,9 +24,12 @@ class UserController
 
     public function deconnexion()
     {
+        var_dump($_COOKIE);
         unset($_COOKIE['user']);
         unset($_COOKIE['role']);
-        setcookie('user', false);
-        setcookie('role', false);
+        setcookie('user');
+        setcookie('role');
+        header("Location: ?view=products");
+
     }
 }

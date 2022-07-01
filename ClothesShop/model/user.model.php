@@ -13,11 +13,11 @@ class UserModel
     public function connexion($login, $password)
     {
         $connexion = $this->db->connexion();
-        $result = $connexion->query("SELECT * FROM user WHERE username = '$login' AND password = '$password'");
+        $result = $connexion->query("SELECT * FROM users WHERE username = '$login' AND password = '$password'");
         $user = $result->fetch(PDO::FETCH_ASSOC);
         if ($user != false) {
-            setcookie('user', $user['username'], time() + (60 * 60 * 72));
-            setcookie('role', $user['role'], time() + (60 * 60 * 72));
+            setcookie('user', $user['username']);
+            setcookie('role', $user['role']);
 
         } else {
             $error = false;

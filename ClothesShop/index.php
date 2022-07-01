@@ -40,7 +40,7 @@ class Router
         $products = $this->productController->getProductsBySearch($_GET['search']);
 
         include_once "view/mainPage.view.php";
-    }  
+    }
     //vue
     //
     // afficher tout les products
@@ -71,14 +71,14 @@ class Router
                 if (isset($_GET['delete'])) {
                     // suppression d'un post si url=delete
                     $this->productController->deleteProduct($_GET['delete']);
-                    header("Location: index.php?view=admin");
+                    header("Location: ?view=admin");
                 }
                 // deconnexion si url= deconnexion
                 if (isset($_GET['deconnexion']) && $_GET['deconnexion'] == 1) {
                     $this->connexionController->deconnexion();
-                    header("Location: ?view=products");
+
                 }
-                include_once "view/mainPage.view.php";
+                include_once "view/admin.view.php";
             } else {
                 echo "<p class='error'>You must be an admin to access this page</p>";
             }
@@ -89,7 +89,11 @@ class Router
                 if ($this->connexionController->connexion($_POST['username'], $_POST['password']) == false) {
 
                     $connexionError = "compte inexistant";
-                } else { $this->connexionController->connexion($_POST['username'], $_POST['password']);}
+                } else {
+                    $this->connexionController->connexion($_POST['username'], $_POST['password']);
+                    header("Location: index.php?view=admin");
+
+                }
             }
             // verifiecation du cookie de connexion
             if (isset($_COOKIE['role']) && $_COOKIE['role'] == "admin") {

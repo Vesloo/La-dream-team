@@ -6,11 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./assets/styles/header.css">
+    <link rel="stylesheet" href="./assets/styles/main.css">
     <title>products</title>
 </head>
 
 <body>
-    <?php include_once('header.view.php'); ?>
+    <?php include_once 'header.view.php'; ?>
     <main>
         <div class='products'>
             <?php
@@ -20,17 +21,17 @@ if (isset($products)) {
         echo "<div class='product'>";
         echo "<div class='line'></div>";
         echo "<h1>" . $product['name'] . "</h1>";
-        echo "<a href='?id=" . $product['id'] . "'>Go post</a>";
+        echo "<a href='?id=" . $product['id'] . "'>Acceder a l'article</a>";
         echo "</div>";
     }
     ?>
 
         </div>
-        <form method="get">
+        <form method="get" class="connexion-form">
             <input type="search" name="search">
             <input type="submit" name="search-submit">
         </form>
-        <form method="GET">
+        <form method="GET" class="filter-form">
             <ul class="sort">
                 <li>
                     <select name="color">
@@ -67,9 +68,9 @@ if (isset($products)) {
     echo "<div class='line'></div>";
     echo "<h1>" . $product['name'] . "</h1>";
     echo "<p>" . $product['description'] . "</p>";
-    echo "<p>" . $product['size'] . "</p>";
-    echo "<p>" . $product['price'] . "</p>";
-    echo "<p>" . $product['category'] . "</p>";
+    echo "<p>" . "Size:  " . $product['size'] . "</p>";
+    echo "<p>" . "Price: " . $product['price'] . " €" . "</p>";
+    echo "<p>" . "Category: " . $product['category'] . "</p>";
 
     echo "</div>";
 
