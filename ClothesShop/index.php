@@ -36,6 +36,7 @@ class Router
 
     public function displayProductsBySearch()
     {
+
         $products = $this->productController->getProductsBySearch($_GET['search']);
 
         include_once "view/mainPage.view.php";
