@@ -18,13 +18,25 @@ class Router
     public function __construct()
     {
         $this->productController = new ProductController();
-        $this->connexionController = new userController();
+        $this->connexionController = new UserController();
 
     }
 // afficher un seul post
     public function displaySpecificProduct()
     {
         $product = $this->productController->getSpecificProduct($_GET['id']);
+        include_once "view/mainPage.view.php";
+    }
+
+    public function displayProductsByFilter()
+    {
+        $products = $this->productController->getProductsByFilter($_GET['size'], $_GET['color'], $_GET['category']);
+        include_once "view/mainPage.view.php";
+    }
+
+    public function displayProductsBySearch()
+    {
+        $products = $this->productController->getProductsBySearch($_GET['search']);
         include_once "view/mainPage.view.php";
     }
     //vue
@@ -114,6 +126,10 @@ class Router
 $router = new Router();
 if (isset($_GET['id'])) {
     $router->displaySpecificProduct();
+} else if (isset($_GET['search-submit'])){
+    $router->displayProductsBySearch();
+} else if (isset($_GET['filter-submit'])){
+    $router->displayProductsByFilter();
 } else {
     $router->displayProducts();
 }

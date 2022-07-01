@@ -20,25 +20,18 @@ class ProductController
 
         return $product;
     }
-    public function getProductsBySize($id)
+    public function getProductsByFilter($size, $color, $category)
     {
         $this->product = new ProductModel();
-        $product = $this->product->getProductsBySize($id);
+        $product = $this->product->getProductsByFilter($size, $color, $category);
 
         return $product;
     }
 
-    public function getProductsByCategory($id)
+    public function getProductsBySearch($search)
     {
         $this->product = new ProductModel();
-        $product = $this->product->getProductsByCategory($id);
-
-        return $product;
-    }
-    public function getProductsByColor($id)
-    {
-        $this->product = new ProductModel();
-        $product = $this->product->getProductsByColor($id);
+        $product = $this->product->getProductBySearch($search);
 
         return $product;
     }
