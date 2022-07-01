@@ -14,6 +14,7 @@
     <main>
         <div class='products'>
             <?php
+
 if (isset($products)) {
     foreach ($products as $product) {
         echo "<div class='product'>";
@@ -66,6 +67,10 @@ if (isset($products)) {
     echo "<div class='line'></div>";
     echo "<h1>" . $product['name'] . "</h1>";
     echo "<p>" . $product['description'] . "</p>";
+    echo "<p>" . $product['size'] . "</p>";
+    echo "<p>" . $product['price'] . "</p>";
+    echo "<p>" . $product['category'] . "</p>";
+
     echo "</div>";
 
 } ?>

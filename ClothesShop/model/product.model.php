@@ -28,7 +28,7 @@ class ProductModel
     {
 
         $connexion = $this->db->connexion();
-        $result = $connexion->query("SELECT * FROM products WHERE size = $size and color= $color and category= $category");
+        $result = $connexion->query("SELECT * FROM products WHERE size = '$size' and color= '$color' and category= '$category'");
         $products = $result->fetchAll(PDO::FETCH_ASSOC);
         return $products;
     }
@@ -36,7 +36,9 @@ class ProductModel
     public function getProductsBySearch($search)
     {
         $connexion = $this->db->connexion();
-        $result = $connexion->query("SELECT * FROM products WHERE name LIKE '%$id%'");
+
+        $result = $connexion->query("SELECT * FROM products WHERE name LIKE '%$search%'");
+
         $products = $result->fetchAll(PDO::FETCH_ASSOC);
         return $products;
     }

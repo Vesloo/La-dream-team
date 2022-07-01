@@ -36,9 +36,11 @@ class Router
 
     public function displayProductsBySearch()
     {
+
         $products = $this->productController->getProductsBySearch($_GET['search']);
+
         include_once "view/mainPage.view.php";
-    }
+    }  
     //vue
     //
     // afficher tout les products
@@ -126,9 +128,9 @@ class Router
 $router = new Router();
 if (isset($_GET['id'])) {
     $router->displaySpecificProduct();
-} else if (isset($_GET['search-submit'])){
+} elseif (isset($_GET['search-submit'])) {
     $router->displayProductsBySearch();
-} else if (isset($_GET['filter-submit'])){
+} elseif (isset($_GET['filter-submit'])) {
     $router->displayProductsByFilter();
 } else {
     $router->displayProducts();
